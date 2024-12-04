@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу</title>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=3b70b4dc-8736-46da-9133-77aedac577c1" type="text/javascript"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="#main">Главная</a></li>
+                <li><a href="#details">Детали</a></li>
+                <li><a href="#schedule">Программа</a></li>
+                <li><a href="#rsvp">Подтвердите своё присутствие</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="main" class="hero">
+        <h1>Никита и Анастасия</h1>
+        <p class="date">17 августа 2025</p>
+        <p class="invite">С радостью приглашаем вас на нашу свадьбу</p>
+    </section>
+
+    <section id="details" class="details">
+        <h2>Детали торжества</h2>
+        <div class="details-grid">
+            <div class="detail-card">
+                <h3>Место проведения</h3>
+                <p>Банкетный зал "Пушкинская усадьба"</p>
+                <p>ул. Зелёная, д.1, городской поселок Фёдоровское</p>
+                
+            </div>
+            <div class="detail-card">
+                <h3>Время</h3>
+                <p>Сбор гостей: 16:00</p>
+                <p>Начало церемонии: 16:30</p>
+            </div>
+            <div class="detail-card">
+                <h3>Дресс-код</h3>
+                <p>Коктейльные платья</p>
+                <p>Цветовая гамма: пастельные тона</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="schedule" class="schedule">
+        <h2>Программа дня</h2>
+        <div class="timeline">
+            <div class="event">
+                <h3>15:00</h3>
+                <p>Трансфер гостей у ст.м. Купчино</p>
+                <div id="map"></div>
+            </div>
+            <div class="event">
+                <h3>16:00</h3>
+                <p>Свадебный фуршет в банкетном зале</p>
+            </div>
+            <div class="event">
+                <h3>16:30</h3>
+                <p>Церемония бракосочетания</p>
+            </div>
+            <div class="event">
+                <h3>17:00</h3>
+                <p>Праздничный ужин</p>
+            </div>
+            <div class="event">
+                <h3>19:00</h3>
+                <p>Развлекательная программа</p>
+            </div>
+            <div class="event">
+                <h3>23:00</h3>
+                <p>Завершение вечера</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="rsvp" class="rsvp">
+        <h2>Подтвердите своё присутствие</h2>
+        <form id="rsvpForm" onsubmit="submitForm(event)">
+            <div id="guestsContainer">
+                <div class="guest-input">
+                    <input type="text" 
+                           name="guests[]" 
+                           placeholder="Ваше имя" 
+                           required 
+                           pattern="^[А-Яа-яЁё]+ [А-Яа-яЁё]+$"
+                           title="Введите имя и фамилию через пробел">
+                </div>
+            </div>
+            <button type="button" onclick="addGuest()">Добавить гостя</button>
+            <button type="submit">Подтвердить</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>С любовью, Никита и Анастасия</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script type="text/javascript">
+
+	ymaps.ready(init); 
+	var myMap;
+	
+	function init() {
+	
+		myMap = new ymaps.Map("map", {
+			center: [59.83017265911805,30.373800600297084], // Координаты центра карты
+			zoom: 16 // Маштаб карты
+		}); 
+	
+		myMap.controls.add(
+			new ymaps.control.ZoomControl()  // Добавление элемента управления картой
+		); 
+	
+		myPlacemark = new ymaps.Placemark([59.83017265911805,30.373800600297084], { // Координаты метки объекта
+			balloonContent: "<div class='ya_map'>Автобус тут!</div>" // Подсказка метки
+		}, {
+			preset: 'islands#blueAutoIcon' // Тип метки
+		});
+		
+		myMap.geoObjects.add(myPlacemark); // Добавление метки
+		myPlacemark.balloon.open(); // Открытие подсказки метки
+		
+	};
+	
+</script>
+
+
+</body>
+</html>

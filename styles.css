@@ -1,0 +1,343 @@
+:root {
+    --primary: #fae3d9; /* нежный персиковый */
+    --primary-dark: #ffcdb2; /* приглушенный коралловый */
+    --text: #8b8178; /* светлый серо-коричневый */
+    --text-light: #a39992; /* еще более светлый текст */
+    --background: #fbf7f4; /* кремовый */
+    --accent: #dbc4bd; /* пыльный розовый */
+    --light: #fff8f5; /* молочный */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1.6;
+    color: var(--text-light);
+    background-color: var(--background);
+}
+
+/* Шапка */
+header {
+    position: fixed;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+}
+
+.menu li {
+    margin: 0 2rem;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: var(--primary-dark);
+}
+
+/* Главный экран */
+.hero {
+    height: 150vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 15vh;
+    background: linear-gradient(
+        rgba(248, 226, 207, 0.3), 
+        rgba(201, 169, 165, 0.3)
+    ),
+    url('./images/wedding-bg.jpg') center/cover;
+}
+
+.hero h1 {
+    font-size: 4.5rem; /* Увеличил размер для длинных имен */
+    color: var(--text);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.date {
+    font-size: 2rem;
+    color: var(--text);
+    margin-bottom: 1rem;
+    
+}
+
+.invite {
+    font-size: 1.5rem;
+    color: var(--text);
+}
+
+/* Детали */
+.details {
+    padding: 6rem 2rem;
+    text-align: center;
+    background: #fff;
+}
+
+.details h2 {
+    color: var(--text);
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Увеличил минимальную ширину */
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.detail-card {
+    padding: 2.5rem; /* Увеличил padding */
+    background: var(--light);
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    border: 1px solid var(--primary);
+}
+
+.detail-card h3 {
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.detail-card p {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+
+/* Программа */
+.schedule {
+    padding: 6rem 2rem;
+    background: #fdfbf9;
+    text-align: center;
+}
+
+.schedule h2 {
+    color: var(--text);
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.timeline {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.event {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--light);
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border-left: 3px solid var(--accent);
+}
+
+.event:hover {
+    transform: translateY(-5px);
+}
+
+.event h3 {
+    color: var(--accent);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.event p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+
+/* Форма RSVP */
+.rsvp {
+    padding: 6rem 2rem;
+    background: #fff;
+    text-align: center;
+}
+
+.rsvp h2 {
+    color: var(--text);
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px; /* Увеличил максимальную ширину */
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+input, textarea {
+    margin: 0.5rem 0;
+    padding: 1rem;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    background-color: var(--light);
+}
+
+input:focus, textarea:focus {
+    border-color: var(--accent);
+    outline: none;
+}
+
+textarea {
+    min-height: 150px;
+}
+
+button {
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    background: var(--primary);
+    color: var(--text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+/* Подвал */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--primary);
+    color: var(--text);
+    font-size: 1.2rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .menu li {
+        margin: 0.5rem 0;
+    }
+    
+    .hero h1 {
+        font-size: 2.8rem; /* Уменьшил для мобильных */
+        padding: 0 1rem;
+    }
+    
+    .date {
+        font-size: 1.5rem;
+    }
+
+    .detail-card {
+        padding: 1.5rem;
+    }
+
+    .event {
+        margin: 1rem;
+    }
+}
+
+.guest-input {
+    display: flex; /* Используем flexbox для выравнивания элементов по горизонтали */
+    align-items: center; /* Центрируем элементы по вертикали */
+    margin-bottom: 10px; /* Отступ снизу для разделения полей */
+    width: 100%; /* Занимаем всю доступную ширину */
+    position: relative; /* Устанавливаем относительное позиционирование для дочерних элементов */
+}
+
+.guest-input input {
+    width: 100%; /* Поле ввода занимает всю доступную ширину */
+    box-sizing: border-box; /* Включаем padding и border в общую ширину элемента */
+    cursor: text; /* Устанавливаем курсор в виде текстового указателя */
+    outline: none; /* Убираем стандартное выделение при фокусе */
+    z-index: 1; /* Обеспечиваем, что поле ввода всегда поверх */
+    position: relative; /* Добавляем относительное позиционирование */
+}
+
+.guest-input button {
+    position: absolute; /* Абсолютное позиционирование относительно родителя */
+    right: -25px; /* Располагаем кнопку справа от поля ввода */
+    top: 25%; /* Центрируем кнопку по вертикали */
+    transform: translateY(-50%); /* Смещаем кнопку вверх на половину её высоты для точного центрирования */
+    background: none; /* Убираем фон кнопки */
+    border: none; /* Убираем границу кнопки */
+    color: #ff4444; /* Устанавливаем цвет текста кнопки */
+    cursor: pointer; /* Изменяем курсор на указатель при наведении */
+    font-size: 14px; /* Размер шрифта для текста кнопки */
+    padding: 0; /* Убираем внутренние отступы */
+    display: flex; /* Используем flexbox для выравнивания содержимого кнопки */
+    align-items: center; /* Центрируем содержимое кнопки по вертикали */
+    justify-content: right; /* Выравниваем содержимое кнопки по правому краю */
+    width: 20px; /* Ширина кнопки */
+    height: 20px; /* Высота кнопки */
+}
+
+.guest-input button:hover {
+    color: #cc0000; /* Изменяем цвет текста кнопки при наведении */
+}
+
+#rsvpForm {
+    width: 100%; /* Форма занимает всю доступную ширину */
+    max-width: 450px; /* Максимальная ширина формы */
+    margin: 0 auto; /* Центрируем форму по горизонтали */
+    display: flex; /* Используем flexbox для выравнивания элементов по вертикали */
+    flex-direction: column; /* Располагаем элементы формы в колонку */
+}
+
+#rsvpForm button {
+    width: 100%; /* Кнопка занимает всю доступную ширину */
+    margin-bottom: 10px; /* Отступ снизу для разделения кнопок */
+    box-sizing: border-box; /* Включаем padding и border в общую ширину элемента */
+    padding: 10px; /* Внутренние отступы кнопки */
+    align-self: flex-start; /* Выравниваем кнопку по левому краю */
+}
+
+#guestsContainer {
+    width: 100%; /* Контейнер для гостей занимает всю доступную ширину */
+    margin-bottom: 10px; /* Отступ снизу для разделения элементов */
+}
+
+.ya_map {
+	font-family: arial;
+	font-size: 12px;
+	color: #454545;
+}
+ 
+#map {
+	width: 300px;
+	height: 200px;
+}
