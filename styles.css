@@ -1,0 +1,463 @@
+/* Определение глобальных переменных с цветами */
+:root {
+    --primary: #fae3d9; /* Основной цвет - нежный персиковый */
+    --primary-dark: #ffcdb2; /* Темный вариант основного цвета - приглушенный коралловый */
+    --text: #8b8178; /* Цвет основного текста - светлый серо-коричневый */
+    --text-light: #a39992; /* Цвет светлого текста - еще более светлый серо-коричневый */
+    --background: #fbf7f4; /* Цвет фона - кремовый */
+    --accent: #dbc4bd; /* Акцентный цвет - пыльный розовый */
+    --light: #fff8f5; /* Светлый цвет - молочный */
+}
+
+/* Сброс стандартных отступов и установка правильной модели box-sizing */
+* {
+    margin: 0; /* Убираем внешние отступы */
+    padding: 0; /* Убираем внутренние отступы */
+    box-sizing: border-box; /* Размер элемента включает padding и border */
+}
+
+/* Основные стили для тела документа */
+body {
+    font-family: 'Cormorant Garamond', serif; /* Установка основного шрифта */
+    line-height: 1.6; /* Межстрочный интервал */
+    color: var(--text-light); /* Цвет текста из переменных */
+    background-color: var(--background); /* Цвет фона из переменных */
+}
+
+/* Стили для фиксированной шапки сайта */
+header {
+    position: fixed; /* Фиксированное позиционирование */
+    width: 100%; /* Ширина на весь экран */
+    background: rgba(255, 255, 255, 0.95); /* Полупрозрачный белый фон */
+    padding: 1rem; /* Внутренний отступ */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Легкая тень снизу */
+    z-index: 1000; /* Поверх остальных элементов */
+}
+
+/* Стили для навигационного меню */
+nav {
+    display: flex; /* Флекс-контейнер */
+    justify-content: center; /* Центрирование содержимого */
+}
+
+/* Список меню */
+.menu {
+    display: flex; /* Флекс для горизонтального расположения */
+    list-style: none; /* Убираем маркеры списка */
+}
+
+/* Элементы меню */
+.menu li {
+    margin: 0 2rem; /* Отступы между пунктами меню */
+}
+
+/* Ссылки в меню */
+.menu a {
+    text-decoration: none; /* Убираем подчеркивание */
+    color: var(--text-light); /* Цвет текста */
+    font-size: 1.2rem; /* Размер шрифта */
+    transition: color 0.3s; /* Плавное изменение цвета */
+}
+
+/* Эффект при наведении на ссылки */
+.menu a:hover {
+    color: var(--primary-dark); /* Изменение цвета при наведении */
+}
+
+/* Главный экран */
+.hero {
+    height: 150vh; /* Высота секции в 150% высоты экрана */
+    display: flex; /* Флекс-контейнер */
+    flex-direction: column; /* Вертикальное расположение элементов */
+    justify-content: flex-end; /* Выравнивание контента к низу */
+    align-items: center; /* Центрирование по горизонтали */
+    text-align: center; /* Выравнивание текста по центру */
+    padding-bottom: 15vh; /* Отступ снизу */
+    background: linear-gradient(
+        rgba(248, 226, 207, 0.3), /* Верхний слой градиента */
+        rgba(201, 169, 165, 0.3) /* Нижний слой градиента */
+    ),
+    url('./images/wedding-bg.jpg') center/cover; /* Фоновое изображение с центрированием и заполнением */
+}
+
+/* Заголовок первого уровня в hero секции */
+.hero h1 {
+    font-size: 4.5rem; /* Большой размер шрифта для имен */
+    color: var(--text); /* Цвет текста из переменных */
+    margin-bottom: 1rem; /* Отступ снизу */
+    line-height: 1.2; /* Межстрочный интервал */
+}
+
+/* Стили для даты в hero секции */
+.date {
+    font-size: 2rem; /* Размер шрифта даты */
+    color: var(--text); /* Цвет текста из переменных */
+    margin-bottom: 1rem; /* Отступ снизу */
+}
+
+/* Стили для текста приглашения */
+.invite {
+    font-size: 1.5rem; /* Размер шрифта */
+    color: var(--text); /* Цвет текста из переменных */
+}
+
+/* Детали */
+.details {
+    padding: 6rem 2rem; /* Внутренние отступы сверху/снизу и по бокам */
+    text-align: center; /* Выравнивание текста по центру */
+    background: #fff; /* Белый фон */
+}
+
+/* Заголовок секции details */
+.details h2 {
+    color: var(--text); /* Цвет текста из переменных */
+    margin-bottom: 3rem; /* Отступ снизу */
+    font-size: 2.5rem; /* Размер шрифта */
+}
+
+/* Сетка для карточек с деталями */
+.details-grid {
+    display: grid; /* Грид-контейнер */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Адаптивные колонки */
+    gap: 3rem; /* Отступы между элементами сетки */
+    max-width: 1200px; /* Максимальная ширина контейнера */
+    margin: 0 auto; /* Центрирование по горизонтали */
+}
+
+/* Стили для карточки с деталями */
+.detail-card {
+    padding: 2.5rem; /* Внутренние отступы */
+    background: var(--light); /* Фоновый цвет из переменных */
+    border-radius: 10px; /* Скругление углов */
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05); /* Легкая тень */
+    border: 1px solid var(--primary); /* Рамка */
+}
+
+/* Заголовок карточки деталей */
+.detail-card h3 {
+    color: var(--accent); /* Цвет текста из переменных */
+    margin-bottom: 1rem; /* Отступ снизу */
+    font-size: 1.5rem; /* Размер шрифта */
+}
+
+/* Параграф в карточке деталей */
+.detail-card p {
+    margin-bottom: 0.5rem; /* Отступ снизу */
+    font-size: 1.2rem; /* Размер шрифта */
+    color: var(--text-light); /* Цвет текста из переменных */
+}
+
+/* Программа */
+.schedule {
+    padding: 6rem 2rem; /* Внутренние отступы */
+    background: #fdfbf9; /* Цвет фона */
+    text-align: center; /* Выравнивание текста по центру */
+}
+
+/* Заголовок секции программы */
+.schedule h2 {
+    color: var(--text); /* Цвет текста из переменных */
+    margin-bottom: 3rem; /* Отступ снизу */
+    font-size: 2.5rem; /* Размер шрифта */
+}
+
+/* Контейнер для временной шкалы */
+.timeline {
+    max-width: 800px; /* Максимальная ширина */
+    margin: 0 auto; /* Центрирование по горизонтали */
+}
+
+/* Стили для события в программе */
+.event {
+    margin: 2rem 0; /* Внешние отступы сверху и снизу */
+    padding: 1.5rem; /* Внутренние отступы */
+    background: var(--light); /* Фоновый цвет из переменных */
+    border-radius: 10px; /* Скругление углов */
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05); /* Легкая тень */
+    transition: transform 0.3s ease; /* Плавная анимация трансформации */
+    border-left: 3px solid var(--accent); /* Акцентная линия слева */
+}
+
+/* Эффект при наведении на событие */
+.event:hover {
+    transform: translateY(-5px); /* Приподнимаем карточку при наведении */
+}
+
+/* Заголовок события */
+.event h3 {
+    color: var(--accent); /* Цвет текста из переменных */
+    font-size: 1.4rem; /* Размер шрифта */
+    margin-bottom: 0.5rem; /* Отступ снизу */
+}
+
+/* Текст события */
+.event p {
+    font-size: 1.2rem; /* Размер шрифта */
+    color: var(--text-light); /* Цвет текста из переменных */
+}
+
+/* Форма RSVP */
+.rsvp {
+    padding: 6rem 2rem; /* Внутренние отступы */
+    background: #fff; /* Белый фон */
+    text-align: center; /* Выравнивание текста по центру */
+}
+
+/* Заголовок формы RSVP */
+.rsvp h2 {
+    color: var(--text); /* Цвет текста из переменных */
+    margin-bottom: 3rem; /* Отступ снизу */
+    font-size: 2.5rem; /* Размер шрифта */
+}
+
+/* Общие стили формы */
+form {
+    display: flex; /* Флекс-контейнер */
+    flex-direction: column; /* Вертикальное расположение элементов */
+    max-width: 600px; /* Максимальная ширина */
+    margin: 0 auto; /* Центрирование по горизонтали */
+    padding: 0 1rem; /* Внутренние отступы по бокам */
+}
+
+/* Стили для полей ввода и текстовой области */
+input, textarea {
+    margin: 0.5rem 0; /* Внешние отступы сверху и снизу */
+    padding: 1rem; /* Внутренние отступы */
+    border: 1px solid var(--primary); /* Рамка */
+    border-radius: 5px; /* Скругление углов */
+    font-family: 'Cormorant Garamond', serif; /* Шрифт */
+    font-size: 1.1rem; /* Размер шрифта */
+    background-color: var(--light); /* Цвет фона */
+}
+
+/* Стили для полей при фокусе */
+input:focus, textarea:focus {
+    border-color: var(--accent); /* Изменение цвета рамки при фокусе */
+    outline: none; /* Убираем стандартное выделение */
+}
+
+/* Минимальная высота для текстовой области */
+textarea {
+    min-height: 150px; /* Задаем минимальную высоту */
+}
+
+/* Общие стили для кнопок */
+button {
+    padding: 1rem 2rem; /* Внутренние отступы */
+    margin-top: 1rem; /* Отступ сверху */
+    background: var(--primary); /* Цвет фона из переменных */
+    color: var(--text); /* Цвет текста */
+    border: none; /* Убираем рамку */
+    border-radius: 5px; /* Скругление углов */
+    cursor: pointer; /* Курсор-указатель */
+    font-family: 'Cormorant Garamond', serif; /* Шрифт */
+    font-size: 1.1rem; /* Размер шрифта */
+    transition: all 0.3s ease; /* Плавная анимация всех свойств */
+    position: relative; /* Для позиционирования псевдоэлемента */
+    overflow: hidden; /* Скрываем выходящие за пределы элементы */
+}
+
+/* Псевдоэлемент для эффекта волны */
+button::before {
+    content: ''; /* Обязательное свойство для псевдоэлемента */
+    position: absolute; /* Абсолютное позиционирование */
+    top: 50%; /* Центрирование по вертикали */
+    left: 50%; /* Центрирование по горизонтали */
+    width: 0; /* Начальная ширина */
+    height: 0; /* Начальная высота */
+    background: rgba(255, 255, 255, 0.2); /* Полупрозрачный белый */
+    border-radius: 50%; /* Круглая форма */
+    transform: translate(-50%, -50%); /* Точное центрирование */
+    transition: width 0.6s ease, height 0.6s ease; /* Анимация размеров */
+}
+
+/* Эффект при наведении на кнопку */
+button:hover::before {
+    width: 150%; /* Увеличиваем размер эффекта волны */
+    height: 400%; /* Увеличиваем высоту эффекта */
+    opacity: 0; /* Плавное исчезновение эффекта */
+    transition: all 0.6s ease-out; /* Плавная анимация всех свойств */
+}
+
+/* Сброс эффекта волны при уходе курсора */
+button:not(:hover)::before {
+    width: 0; /* Сброс ширины */
+    height: 0; /* Сброс высоты */
+    opacity: 1; /* Восстановление прозрачности */
+    transition: 0s; /* Мгновенный сброс */
+}
+
+/* Эффект при наведении на кнопку */
+button:hover {
+    background: var(--primary-dark); /* Изменение цвета фона */
+    transform: translateY(-2px); /* Легкое поднятие кнопки */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Добавление тени */
+}
+
+/* Эффект при нажатии на кнопку */
+button:active {
+    transform: translateY(0); /* Возврат к исходной позиции */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Уменьшение тени */
+}
+
+/* Анимация пульсации */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(250, 227, 217, 0.4); /* Начальное состояние тени */
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(250, 227, 217, 0); /* Максимальное расширение тени */
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(250, 227, 217, 0); /* Исчезновение тени */
+    }
+}
+
+/* Эффект фокуса на кнопке */
+button:focus {
+    outline: none; 
+    animation: pulse 1.5s infinite; /* Бесконечная анимация пульсации */
+}
+
+/* Состояние активной кнопки */
+button.active {
+    opacity: 0.9; /* Небольшое затемнение */
+}
+
+/* Подвал */
+footer {
+    text-align: center; /* Выравнивание текста по центру */
+    padding: 2rem; /* Внутренние отступы */
+    background: var(--primary); /* Цвет фона из переменных */
+    color: var(--text); /* Цвет текста из переменных */
+    font-size: 1.2rem; /* Размер шрифта */
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .menu li {
+        margin: 0.5rem 0;
+    }
+    
+    .hero h1 {
+        font-size: 2.8rem; /* Уменьшил для мобильных */
+        padding: 0 1rem;
+    }
+    
+    .date {
+        font-size: 1.5rem;
+    }
+
+    .detail-card {
+        padding: 1.5rem;
+    }
+
+    .event {
+        margin: 1rem;
+    }
+}
+
+.guest-input {
+    display: flex; /* Используем flexbox для выравнивания элементов по горизонтали */
+    align-items: center; /* Центрируем элементы по вертикали */
+    margin-bottom: 10px; /* Отступ снизу для разделения полей */
+    width: 100%; /* Занимаем всю доступную ширину */
+    position: relative; /* Устанавливаем относительное позиционирование для дочерних элементов */
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+.guest-input input {
+    width: 100%; /* Поле ввода занимает всю доступную ширину */
+    box-sizing: border-box; /* Включаем padding и border в общую ширину элемента */
+    cursor: text; /* Устанавливаем курсор в виде текстового указателя */
+    outline: none; /* Убираем стандартное выделение при фокусе */
+    z-index: 1; /* Обеспечиваем, что поле ввода всегда поверх */
+    position: relative; /* Добавляем относительное позиционирование */
+    transition: all 0.3s ease;
+    border: 1px solid var(--primary);
+    box-shadow: 0 0 0 0 var(--primary-dark);
+}
+
+.guest-input input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(219, 196, 189, 0.3); /* Использует var(--accent) с прозрачностью */
+    transform: translateY(-1px);
+}
+
+.guest-input input:hover {
+    border-color: var(--primary-dark);
+    background-color: var(--light);
+}
+
+/* Добавляем анимацию появления для новых полей ввода */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.guest-input button {
+    position: absolute; /* Абсолютное позиционирование относительно родителя */
+    right: -25px; /* Располагаем кнопку справа от поля ввода */
+    top: 25%; /* Центрируем кнопку по вертикали */
+    transform: translateY(-50%); /* Смещаем кнопку вверх на половину её высоты для точного центрирования */
+    background: none; /* Убираем фон кнопки */
+    border: none; /* Убираем границу кнопки */
+    color: #ff4444; /* Устанавливаем цвет текста кнопки */
+    cursor: pointer; /* Изменяем курсор на указатель при наведении */
+    font-size: 14px; /* Размер шрифта для текста кнопки */
+    padding: 0; /* Убираем внутренние отступы */
+    display: flex; /* Используем flexbox для выравнивания содержимого кнопки */
+    align-items: center; /* Центрируем содержимое кнопки по вертикали */
+    justify-content: right; /* Выравниваем содержимое кнопки по правому краю */
+    width: 20px; /* Ширина кнопки */
+    height: 20px; /* Высота кнопки */
+}
+
+.guest-input button:hover {
+    color: #cc0000; /* Изменяем цвет текста кнопки при наведении */
+}
+
+#rsvpForm {
+    width: 100%; /* Форма занимает всю доступную ширину */
+    max-width: 450px; /* Максимальная ширина формы */
+    margin: 0 auto; /* Центрируем форму по горизонтали */
+    display: flex; /* Используем flexbox для выравнивания элементов по вертикали */
+    flex-direction: column; /* Располагаем элементы формы в колонку */
+}
+
+#rsvpForm button {
+    width: 100%; /* Кнопка занимает всю доступную ширину */
+    margin-bottom: 10px; /* Отступ снизу для разделения кнопок */
+    box-sizing: border-box; /* Включаем padding и border в общую ширину элемента */
+    padding: 10px; /* Внутренние отступы кнопки */
+    align-self: flex-start; /* Выравниваем кнопку по левому краю */
+}
+
+#guestsContainer {
+    width: 100%; /* Контейнер для гостей занимает всю доступную ширину */
+    margin-bottom: 10px; /* Отступ снизу для разделения элементов */
+}
+
+/* Стили для яндекс карты */
+.ya_map {
+    font-family: arial; /* Шриф�� для карты */
+    font-size: 12px; /* Размер шрифта */
+    color: #454545; /* Цвет текста */
+}
+
+/* Размеры контейнера карты */
+#map {
+    width: 300px; /* Ширина карты */
+    height: 200px; /* Высота карты */
+}
