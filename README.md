@@ -1,1 +1,1 @@
-# wedding_invitation
+# invitation_page
