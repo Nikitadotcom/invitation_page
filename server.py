@@ -2,11 +2,14 @@ from flask import Flask, request, render_template, redirect, url_for
 from flask_cors import CORS
 from telegram import Bot
 import asyncio
+<<<<<<< HEAD
 import os
 from .env import load_dotenv
 
 # Загружаем переменные окружения
 load_dotenv()
+=======
+>>>>>>> e1166c1f3895540bfd9251d2b7b0689037ba4799
 
 app = Flask(__name__)
 CORS(app, resources={
@@ -17,9 +20,16 @@ CORS(app, resources={
     }
 })
 
+<<<<<<< HEAD
 # Получаем значения из переменных окружения
 TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 CHAT_IDS = os.getenv('TELEGRAM_CHAT_IDS').split(',')
+=======
+# токен телеграм бота
+TOKEN = "7757488245:AAEQjT0L1Oq-x7NYyFoMNt4mCrIiQziB_ek"
+# ID чатов, куда будут приходить сообщения
+CHAT_IDS = ["241077565", "861104880"]  
+>>>>>>> e1166c1f3895540bfd9251d2b7b0689037ba4799
 
 bot = Bot(token=TOKEN)
 
@@ -52,7 +62,11 @@ def submit_rsvp():
             return {"error": "Список гостей пуст"}, 400
             
         # Формируем сообщение для Telegram
+<<<<<<< HEAD
         message = "Новая заявка!\n\nСписок гостей:"
+=======
+        message = "Новая заявка на свадьбу!\n\nСписок гостей:"
+>>>>>>> e1166c1f3895540bfd9251d2b7b0689037ba4799
         for i, guest in enumerate(guests, 1):
             message += f"\n{i}. {guest}"
             
